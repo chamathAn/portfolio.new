@@ -1,10 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+import me from '../me.png';
 import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import { Font } from "astro:assets";
 ---
 
 <html lang="en">
@@ -17,10 +15,29 @@ import Button from '../components/Button.astro';
 		<title>Astro + TailwindCSS</title>
 	</head>
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
+	<body class="bg-background grid lg:grid-cols-12 min-h-screen lg:container w-ful font-jetbrains-mono">
+		<Font cssVariable="--font-jetbrains-mono" preload />
+		<section class="col-start-1 col-end-4 bg-card border-r border-foreground flex flex-col items-center justify-beteween py-10 lg:px-2">
+			<div class="flex flex-col items-center justify-center gap-y-4">
+				<Image
+				src={me}
+				alt=""
+				quality={100}
+				priority
+				loading="eager"
+				widths={[256, 512, me.width]}
+				sizes={`256px, (min-width: 1024px): 512px, (min-width: 1280px): ${me.width}px`}
+				class="size-48 border-2 border-white "
+				draggable={false}
+			/>
+
+			<div class="flex flex-1 flex-col items-center text-center pb-8 lg:pb-0">
+				<h1 class="text-xl leading-8 tracking-tight">Chamath Anjula</h1>
+				<span class="text-sm text-muted-foreground">SE / Full Stack / AWS / LLM / NLP</span>
+			</div>
+			</div>
+			
+		</section>
+		<p>dasdasdsffg</p>
 	</body>
 </html>
