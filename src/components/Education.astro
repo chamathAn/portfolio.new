@@ -1,0 +1,20 @@
+---
+import { EDUCATION } from "../utils/constants";
+---
+
+<div class="flex flex-col gap-2">
+
+  <h3 class="font-semibold">{"#education"}</h3>
+
+  <ul class="space-y-2 list-disc pl-5">
+    {EDUCATION.map((edu) => (
+      <li>
+        <span class="font-medium">{edu.place}</span>
+        <span class="text-sm text-muted-foreground">
+          {" - " + edu.duration}
+        </span>
+      </li>
+    ))}
+  </ul>
+
+</div>

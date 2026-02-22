@@ -1,0 +1,26 @@
+---
+import { PROJECTS } from "../utils/constants";
+---
+<div class="flex flex-col gap-2">
+
+    <h3 class="font-semibold">{"#projects"}</h3>
+    <ul class="space-y-2 list-disc pl-5">
+        {PROJECTS.map((project) => (
+            <li>
+      <a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-medium hover:underline"
+      >
+        {project.name} 
+      </a> <span> {" - "+project.desc}</span>
+
+      <ul class="mt-2 ml-2 space-y-1 list-disc text-sm text-muted-foreground">
+        <li class="text-text-2">{"Tech Stack used is"} {project.tech}</li>
+        <li class="text-text-2">{"Skills are"}  {project.skills}</li>
+      </ul>
+    </li>
+  ))}
+</ul>
+</div>

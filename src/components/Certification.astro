@@ -1,0 +1,27 @@
+---
+import { CERTIFICATIONS } from "../utils/constants";
+---
+
+<div class="flex flex-col gap-2">
+
+  <h3 class="font-semibold">{"#certifications"}</h3>
+
+  <ul class="space-y-3 list-disc pl-5">
+    {CERTIFICATIONS.map((cert) => (
+      <li>
+        <a
+          href={cert.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-medium hover:underline"
+        >
+          {cert.title}
+        </a>
+        <span class="text-sm text-muted-foreground">
+          {" - " + cert.issuer + " - " + cert.date}
+        </span>
+      </li>
+    ))}
+  </ul>
+
+</div>

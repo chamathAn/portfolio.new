@@ -1,0 +1,34 @@
+---
+import { getMediumPosts } from "../utils/constants";
+
+const BLOGS = await getMediumPosts();
+---
+
+<div class="flex flex-col gap-2">
+
+  <h3 class="font-semibold">{"#blogs"}</h3>
+
+  <ul class="space-y-4 list-disc pl-5">
+    {BLOGS.map((blog) => (
+      <li>
+        <a
+          href={blog.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-medium hover:underline"
+        >
+          {blog.title}
+        </a>
+
+        <span class="text-sm text-muted-foreground">
+          {" - " + new Date(blog.pubDate).toLocaleDateString()}
+        </span>
+
+        <ul class="mt-2 ml-2 space-y-1 list-disc text-sm text-muted-foreground">
+          <li class="text-text-2">{blog.description}</li>
+        </ul>
+      </li>
+    ))}
+  </ul>
+
+</div>

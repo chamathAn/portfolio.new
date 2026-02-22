@@ -7,11 +7,16 @@ const { content } = Astro.props;
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/me.png" />
+    	<link rel="icon" href="/me.png" />
 		<title>{content.title}</title>
+		<script is:inline>
+    	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    	document.documentElement.classList.toggle('dark', prefersDark);
+  </script>
 	</head>
-	<body>
+	<body class="bg-radial from-white to-background dark:from-white/5 dark:to-background relative font-jetbrains-mono">
+		
 		<slot />
 	</body>
 </html>
